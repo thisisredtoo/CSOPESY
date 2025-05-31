@@ -1,4 +1,3 @@
-//#include <curses.h>
 #include <string>
 #include <vector>
 #include <iostream>
@@ -11,20 +10,6 @@ struct ProcessInfo {
     std::string memory;
 };
 
-
-
-//void gpuSummary() {
-//    printw("+-----------------------------------------------------------------------------------------+\n");
-//    printw("| NVIDIA-SMI 572.40                 Driver Version: 572.40         CUDA Version: 12.8     |\n");
-//    printw("|-----------------------------------------+------------------------+----------------------+\n");
-//    printw("| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n");
-//    printw("| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n");
-//    printw("|===============================+======================+==================================|\n");
-//    printw("|   0  NVIDIA GeForce MX450         WDDM  |   00000000:05:00.0 Off |                  N/A |\n");
-//    printw("| N/A   56C    P8            N/A  / 5001W |       1MiB /   2048MiB |      0%%      Default |\n");
-//    printw("|                                         |                        |                  N/A |\n");
-//    printw("+-----------------------------------------------------------------------------------------+\n\n");
-//}
 
 void gpuSummary() {
     std::cout << "+-----------------------------------------------------------------------------------------+\n"
@@ -48,22 +33,6 @@ std::string trimName(const std::string& pName, size_t width) {
     }
 }
 
-//void processSummary(const std::vector<ProcessInfo> process) {
-//    printw("+-----------------------------------------------------------------------------------------+\n");
-//    printw("| Processes:                                                                              |\n");
-//    printw("|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n");
-//    printw("|        ID   ID                                                               Usage      |\n");
-//    printw("|=========================================================================================|\n");
-//
-//    // Print dummy processes
-//    for (ProcessInfo p : process) {
-//        std::string new_name = trimName(p.name, 32);
-//        printw("|    0   N/A  N/A           %5d   %4s   %20s %9s     |\n",
-//            p.pid, p.type.c_str(), new_name.c_str(), p.memory.c_str());
-//    }
-//    printw("+-----------------------------------------------------------------------------------------+\n");
-//
-//}
 
 void processSummary(const std::vector<ProcessInfo> process) {
         std::cout << "+-----------------------------------------------------------------------------------------+\n"
@@ -83,8 +52,6 @@ void processSummary(const std::vector<ProcessInfo> process) {
  }
 
 int main() {
-    //initscr();
-
     char timestamp[30];
     time_t dt = time(0);
     ctime_s(timestamp, sizeof(timestamp), &dt);
@@ -105,11 +72,5 @@ int main() {
     // Print process summary
     processSummary(processes);
     
-    //printw("Press any key to exit...");
-    //refresh();
-
-    //getch(); // Wait for user input
-
-    //endwin(); // End curses mode
     return 0;
 }
